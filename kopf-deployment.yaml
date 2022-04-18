@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kopf-operator
+  namespace: ops
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      application: kopf-operator
+  template:
+    metadata:
+      labels:
+        application: kopf-operator
+    spec:
+      serviceAccountName: kopf-svc-account
+      containers:
+      - name: kopfop
+        image: nicatisa/k8s-operator
