@@ -1,0 +1,33 @@
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  name: envinjectors.envinjector.org
+spec:
+  scope: Namespaced
+  group: envinjector.org
+  versions:
+    - name: v1
+      served: true
+      storage: true
+      schema:
+        openAPIV3Schema:
+          type: object
+          x-kubernetes-preserve-unknown-fields: true
+          properties:
+            envs:
+              type: array
+              items:
+                type: object
+                properties:
+                  name:
+                    type: string
+                  value:
+                    type: string
+           
+  names:
+    kind: EnvInjector
+    plural: envinjectors
+    singular: envinjector
+    shortNames:
+      - evj
+      - evjs

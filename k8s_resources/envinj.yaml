@@ -1,0 +1,12 @@
+apiVersion: envinjector.org/v1
+kind: EnvInjector
+metadata:
+  name: test-injector
+  namespace: test-ns
+spec:
+  envs:
+    - name:  NO_PROXY
+      value: "127.0.0.1"
+    - name: "PROXY"
+      value: "TEST"
+

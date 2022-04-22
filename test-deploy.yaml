@@ -4,17 +4,17 @@ metadata:
   name: nginx-deployment
   namespace: test-ns
   labels:
-    app: nginx
+    app: nginx-test
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: nginx
+      app: nginx-test
   template:
     metadata:
       labels:
-        app: nginx
+        app: nginx-test
     spec:
       containers:
-      - name: nginx
+      - name: nginx-test
         image: nginx:1.14.2
