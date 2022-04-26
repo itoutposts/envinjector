@@ -1,12 +1,11 @@
-apiVersion: envinjector.org/v1
+apiVersion: itoutposts.com/v1
 kind: EnvInjector
 metadata:
   name: test-injector
   namespace: test-ns
 spec:
   envs:
-    - name:  NO_PROXY
+    - name:  "proxy"
       value: "127.0.0.1"
-    - name: "PROXY"
-      value: "TEST"
-
+    - name: "no_proxy"
+      value: "test"

@@ -2,7 +2,7 @@ import kopf
 import json
 from kubernetes import kubernetes
 
-@kopf.on.create('envinjector.org', 'v1', 'EnvInjector')
+@kopf.on.create('itoutposts.com', 'v1', 'EnvInjector')
 async def create_envinjector(body,spec, **kwargs):
     """
         Trigger object which created with CRD and apply all envs to deployments in namespace
@@ -27,7 +27,7 @@ async def create_envinjector(body,spec, **kwargs):
 
 
 
-@kopf.on.update('envinjector.org', 'v1', 'EnvInjector')
+@kopf.on.update('itoutposts.com', 'v1', 'EnvInjector')
 async def update_envinjector(body,spec, **kwargs):
     """ 
         Trigger when CRD object is edited (remove or add new envs)
@@ -98,7 +98,7 @@ async def my_handler(body,spec, **kwargs):
 
     client = kubernetes.client.CustomObjectsApi()
     # retrive created CRD object
-    custom_object = client.list_namespaced_custom_object(group="envinjector.org", version="v1",namespace=namespace ,plural="envinjectors")
+    custom_object = client.list_namespaced_custom_object(group="itoutposts.com", version="v1",namespace=namespace ,plural="envinjectors")
     if custom_object["items"]:
         envs = custom_object["items"][0]["spec"]["envs"]
    
