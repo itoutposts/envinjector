@@ -17,9 +17,9 @@ async def create_envinjector(body,spec, **kwargs):
 
         container = dep.spec.template.spec.containers[0]
         if container.env:
-            container["env"].append(*envs)
+            container.env.append(*envs)
         else:
-            container["env"] = envs
+            container.env = envs
         body["spec"]["template"]["spec"]["containers"][0] = container
 
         dep.spec.template.spec.containers[0] = container
