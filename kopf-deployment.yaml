@@ -18,4 +18,4 @@ spec:
       serviceAccountName: kopf-svc-account
       containers:
       - name: kopfop
-        image: nicatisa/k8s-operator
+        image: itoutposts/env_injector
